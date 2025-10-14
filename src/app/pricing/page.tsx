@@ -109,54 +109,92 @@ export default function PricingPage() {
         ))}
       </section>
 
-      {/* Comparison Table (desktop) */}
-      <section className="mt-14 hidden md:block">
+      {/* Feature Comparison (responsive grid) */}
+      <section className="mt-14">
         <h2 className="text-2xl font-bold text-center">Compare Features</h2>
-        <div className="mt-6 overflow-x-auto">
-          <table className="min-w-full border text-sm">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="border px-4 py-2 text-left">Feature</th>
-                <th className="border px-4 py-2">Starter</th>
-                <th className="border px-4 py-2">Growth</th>
-                <th className="border px-4 py-2">Premium</th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparison.map((row) => (
-                <tr key={row.feature}>
-                  <td className="border px-4 py-2 text-gray-800">{row.feature}</td>
-                  <td className="border px-4 py-2">{row.starter}</td>
-                  <td className="border px-4 py-2">{row.growth}</td>
-                  <td className="border px-4 py-2">{row.premium}</td>
-                </tr>
+        <div className="mt-6">
+          <div className="grid md:grid-cols-4 md:-mx-6 text-sm">
+            {/* Labels column */}
+            <section className="md:contents">
+              {/* Header cell */}
+              <div
+                className="p-4 md:px-6 md:py-4 border border-gray-200 bg-gray-50 font-semibold rounded-xl md:rounded-none text-left"
+                style={{ order: 1 }}
+              >
+                Feature
+              </div>
+              {comparison.map((row, i) => (
+                <div
+                  key={row.feature}
+                  className="p-4 md:px-6 md:py-4 border border-gray-200 bg-white text-gray-800 text-left"
+                  style={{ order: 5 + i * 4 }}
+                >
+                  {row.feature}
+                </div>
               ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
+            </section>
 
-      {/* Comparison Accordion (mobile) */}
-      <section className="mt-14 md:hidden">
-        <h2 className="text-2xl font-bold text-center">Compare Features</h2>
-        <div className="mt-6 space-y-4">
-          {plans.map((plan) => (
-            <details key={plan.name} className="rounded-xl border bg-white p-4 shadow-lg">
-              <summary className="cursor-pointer font-semibold">{plan.name}</summary>
-              <ul className="mt-3 space-y-2 text-sm text-gray-700">
-                {comparison.map((row) => (
-                  <li key={row.feature} className="flex justify-between">
-                    <span className="text-gray-800">{row.feature}</span>
-                    <span className="font-medium">
-                      {plan.name === "STARTER" && row.starter}
-                      {plan.name === "GROWTH" && row.growth}
-                      {plan.name === "PREMIUM" && row.premium}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </details>
-          ))}
+            {/* Starter column */}
+            <section className="md:contents">
+              <div
+                className="p-4 md:px-6 md:py-4 border border-gray-200 bg-white font-semibold rounded-xl md:rounded-none text-center"
+                style={{ order: 2 }}
+              >
+                <div className="font-bold">{plans[0].name}</div>
+                <div className="text-2xl font-bold">{plans[0].price}</div>
+              </div>
+              {comparison.map((row, i) => (
+                <div
+                  key={row.feature}
+                  className="p-4 md:px-6 md:py-4 border border-gray-200 bg-white text-center"
+                  style={{ order: 6 + i * 4 }}
+                >
+                  {row.starter}
+                </div>
+              ))}
+            </section>
+
+            {/* Growth column */}
+            <section className="md:contents">
+              <div
+                className="p-4 md:px-6 md:py-4 border border-gray-200 bg-orange-50 font-semibold rounded-xl md:rounded-none text-center ring-2 ring-orange-500"
+                style={{ order: 3 }}
+              >
+                <div className="font-bold">{plans[1].name}</div>
+                <div className="text-2xl font-bold">{plans[1].price}</div>
+                <div className="mt-1 text-xs inline-block rounded-full bg-orange-200 text-orange-900 px-2 py-0.5">{plans[1].badge}</div>
+              </div>
+              {comparison.map((row, i) => (
+                <div
+                  key={row.feature}
+                  className="p-4 md:px-6 md:py-4 border border-gray-200 bg-orange-50 text-center"
+                  style={{ order: 7 + i * 4 }}
+                >
+                  {row.growth}
+                </div>
+              ))}
+            </section>
+
+            {/* Premium column */}
+            <section className="md:contents">
+              <div
+                className="p-4 md:px-6 md:py-4 border border-gray-200 bg-white font-semibold rounded-xl md:rounded-none text-center"
+                style={{ order: 4 }}
+              >
+                <div className="font-bold">{plans[2].name}</div>
+                <div className="text-2xl font-bold">{plans[2].price}</div>
+              </div>
+              {comparison.map((row, i) => (
+                <div
+                  key={row.feature}
+                  className="p-4 md:px-6 md:py-4 border border-gray-200 bg-white text-center"
+                  style={{ order: 8 + i * 4 }}
+                >
+                  {row.premium}
+                </div>
+              ))}
+            </section>
+          </div>
         </div>
       </section>
 

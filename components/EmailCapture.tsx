@@ -60,7 +60,7 @@ export default function EmailCapture({ source = "home" }: { source?: string }) {
           aria-invalid={!!errors.email}
           {...register("email")}
           placeholder="Enter your email"
-          className="flex-1 rounded-md border border-black/10 px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-secondary)]"
+          className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500"
         />
         <Button type="submit" disabled={status === "loading"}>
           {status === "loading" ? "Subscribing…" : "Subscribe"}

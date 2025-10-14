@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-[var(--color-secondary)] via-[#1f2b53] to-[var(--color-primary)] text-white">
+      <section className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-secondary-600 via-secondary-800 to-primary-500 text-white">
         <Container className="py-20">
           <div className="max-w-2xl space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
@@ -34,15 +34,15 @@ export default function Home() {
       </section>
 
       {/* Email capture */}
-      <section id="subscribe" className="bg-[var(--color-accent)]">
+      <section id="subscribe" className="bg-accent-100">
         <Container className="py-16 md:py-24">
           <div className="max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-text)]">Get updates and launch offers</h2>
-            <p className="mt-2 text-[var(--color-muted)]">Leave your email and we&apos;ll reach out.</p>
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Get updates and launch offers</h2>
+            <p className="mt-2 text-gray-600">Leave your email and we&apos;ll reach out.</p>
             <div className="mt-6">
               <EmailCapture source="homepage" />
             </div>
-            <p className="mt-2 text-xs text-[var(--color-muted)]">We respect your privacy. No spam.</p>
+            <p className="mt-2 text-xs text-gray-600">We respect your privacy. No spam.</p>
           </div>
         </Container>
       </section>
@@ -50,22 +50,22 @@ export default function Home() {
       {/* Why choose us */}
       <section id="learn-more">
         <Container className="py-16 md:py-24">
-          <h3 className="text-2xl font-semibold text-[var(--color-text)]">Why choose us</h3>
+          <h3 className="text-2xl font-semibold text-gray-900">Why choose us</h3>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6 shadow hover:shadow-lg transition-shadow">
-              <Users className="h-6 w-6 text-[var(--color-secondary)]" aria-hidden />
-              <h4 className="mt-3 font-semibold text-[var(--color-text)]">Pro Hosts</h4>
-              <p className="mt-1 text-[var(--color-muted)]">Engaging, persuasive sellers trained for platform best practices.</p>
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow hover:shadow-lg transition-shadow">
+              <Users className="h-6 w-6 text-secondary-600" aria-hidden />
+              <h4 className="mt-3 font-semibold text-gray-900">Pro Hosts</h4>
+              <p className="mt-1 text-gray-600">Engaging, persuasive sellers trained for platform best practices.</p>
             </div>
-            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6 shadow hover:shadow-lg transition-shadow">
-              <BarChart3 className="h-6 w-6 text-[var(--color-secondary)]" aria-hidden />
-              <h4 className="mt-3 font-semibold text-[var(--color-text)]">Performance Focus</h4>
-              <p className="mt-1 text-[var(--color-muted)]">Scripts, hooks, and CTAs optimized to drive conversions.</p>
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow hover:shadow-lg transition-shadow">
+              <BarChart3 className="h-6 w-6 text-secondary-600" aria-hidden />
+              <h4 className="mt-3 font-semibold text-gray-900">Performance Focus</h4>
+              <p className="mt-1 text-gray-600">Scripts, hooks, and CTAs optimized to drive conversions.</p>
             </div>
-            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6 shadow hover:shadow-lg transition-shadow">
-              <Workflow className="h-6 w-6 text-[var(--color-secondary)]" aria-hidden />
-              <h4 className="mt-3 font-semibold text-[var(--color-text)]">Flexible Plans</h4>
-              <p className="mt-1 text-[var(--color-muted)]">From starter tests to daily shows—scale at your pace.</p>
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow hover:shadow-lg transition-shadow">
+              <Workflow className="h-6 w-6 text-secondary-600" aria-hidden />
+              <h4 className="mt-3 font-semibold text-gray-900">Flexible Plans</h4>
+              <p className="mt-1 text-gray-600">From starter tests to daily shows—scale at your pace.</p>
             </div>
           </div>
         </Container>
@@ -74,11 +74,11 @@ export default function Home() {
       {/* How it works */}
       <section>
         <Container className="py-16 md:py-24">
-          <h3 className="text-2xl font-semibold text-[var(--color-text)]">How it works</h3>
+          <h3 className="text-2xl font-semibold text-gray-900">How it works</h3>
           <ol className="mt-6 grid grid-cols-1 md:grid-cols-5 gap-4">
             {["Choose Your Plan","Sign Up & Pay","Share Your Details","Setup Call","Go Live Next Day"].map((step, i) => (
-              <li key={step} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-4 text-[var(--color-text)] shadow">
-                <span className="text-sm text-[var(--color-muted)]">Step {i + 1}</span>
+              <li key={step} className="rounded-xl border border-gray-200 bg-white p-4 text-gray-900 shadow">
+                <span className="text-sm text-gray-600">Step {i + 1}</span>
                 <p className="mt-1 font-medium">{step}</p>
               </li>
             ))}
@@ -92,7 +92,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-primary)]">
+      <section className="bg-gradient-to-br from-secondary-600 to-primary-500">
         <Container className="py-16 md:py-24">
           <div className="md:flex md:items-center md:justify-between gap-6">
             <div>
@@ -100,7 +100,7 @@ export default function Home() {
               <p className="mt-2 text-white/80">Start today—no hiring hassles, just results.</p>
             </div>
             <Link href="/pricing" className="mt-6 md:mt-0">
-              <Button className="bg-white text-[var(--color-secondary)] hover:bg-white/90" aria-label="Get Started Today">
+              <Button className="bg-white text-secondary-600 hover:bg-gray-50" aria-label="Get Started Today">
                 Get Started Today
               </Button>
             </Link>

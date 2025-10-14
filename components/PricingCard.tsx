@@ -23,7 +23,7 @@ export default function PricingCard({
     <div
       className={
         "relative rounded-lg border bg-white p-6 shadow-sm flex flex-col" +
-        (highlighted ? " border-[var(--color-secondary)]" : " border-black/10")
+        (highlighted ? " border-secondary-500" : " border-gray-200")
       }
     >
       {badge && (
@@ -31,8 +31,8 @@ export default function PricingCard({
           className={
             "absolute -top-3 left-4 rounded-full px-3 py-1 text-xs font-semibold" +
             (highlighted
-              ? " bg-[var(--color-secondary)] text-white"
-              : " bg-[var(--color-primary)] text-white")
+              ? " bg-secondary-600 text-white"
+              : " bg-primary-500 text-white")
           }
         >
           {badge}
@@ -40,7 +40,7 @@ export default function PricingCard({
       )}
       <div>
         <h3 className="text-lg font-bold">{title}</h3>
-        <p className="mt-2 text-2xl font-extrabold text-[var(--color-secondary)]">
+        <p className="mt-2 text-2xl font-extrabold text-secondary-600">
           {price}
         </p>
       </div>

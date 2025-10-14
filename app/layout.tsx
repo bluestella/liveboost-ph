@@ -49,7 +49,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
         <Navbar />
-        <main className="min-h-[60vh]">{children}</main>
+        <div className="min-h-[60vh]">{children}</div>
         <Footer />
       </body>
     </html>

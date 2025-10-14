@@ -13,8 +13,8 @@ export default function PricingPage() {
     <div>
       <Container className="py-12">
         <header className="text-center">
-          <h1 className="text-3xl font-extrabold text-[var(--color-secondary)]">Choose Your Growth Plan</h1>
-          <p className="mt-2 text-sm text-[var(--color-text)]">Flexible monthly subscriptions. Cancel anytime.</p>
+          <h1 className="text-3xl font-extrabold text-secondary-600">Choose Your Growth Plan</h1>
+          <p className="mt-2 text-sm text-gray-900">Flexible monthly subscriptions. Cancel anytime.</p>
         </header>
 
         <section className="mt-8 grid gap-6 md:grid-cols-3">
@@ -57,9 +57,9 @@ export default function PricingPage() {
         </section>
 
         <section className="mt-10">
-          <div className="overflow-x-auto rounded-xl border border-[var(--color-border)] bg-[var(--color-card)]">
+          <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
             <table className="w-full text-sm">
-              <thead className="bg-[var(--color-bg-muted)]">
+              <thead className="bg-gray-50">
                 <tr>
                   <th className="p-2 text-left">Feature</th>
                   <th className="p-2 text-left">Starter</th>
@@ -117,8 +117,8 @@ export default function PricingPage() {
 
       <section className="mt-8">
         <Container className="py-12">
-          <div className="rounded-lg bg-[var(--color-bg-muted)] p-6">
-            <h2 className="text-xl font-bold text-[var(--color-secondary)]">Get updates and early-bird deals</h2>
+          <div className="rounded-lg bg-gray-50 p-6">
+            <h2 className="text-xl font-bold text-secondary-600">Get updates and early-bird deals</h2>
             <p className="mt-2 text-sm">Leave your email and we’ll reach out with launch offers.</p>
             <div className="mt-4 max-w-md">
               <EmailCapture source="pricing" />

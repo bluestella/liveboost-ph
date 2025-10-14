@@ -14,13 +14,13 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-[var(--color-bg)]/90 backdrop-blur border-b border-black/5">
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
       <nav
         aria-label="Main navigation"
         className="mx-auto max-w-6xl flex items-center justify-between px-4 py-3"
       >
         <Link href="/" className="flex items-center gap-2" aria-label="Home">
-          <span className="text-lg font-bold text-[var(--color-secondary)]">
+          <span className="text-lg font-bold text-secondary-600">
             LiveBoost PH
           </span>
         </Link>
@@ -28,25 +28,25 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-6">
           <Link
             href="/"
-            className="text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-secondary)]"
+            className="text-sm font-medium text-gray-900 hover:text-secondary-600"
           >
             Home
           </Link>
           <Link
             href="/pricing"
-            className="text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-secondary)]"
+            className="text-sm font-medium text-gray-900 hover:text-secondary-600"
           >
             Pricing
           </Link>
           <a
             href="mailto:contact@liveboostph.com"
-            className="text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-secondary)]"
+            className="text-sm font-medium text-gray-900 hover:text-secondary-600"
           >
             Contact
           </a>
           <Link
             href="/pricing"
-            className="inline-flex items-center rounded-md bg-[var(--color-primary)] text-white px-3 py-2 text-sm font-medium hover:bg-[#e6602f]"
+            className="inline-flex items-center rounded-md bg-primary-500 text-white px-3 py-2 text-sm font-medium hover:bg-primary-600"
           >
             View Plans
           </Link>
@@ -94,28 +94,28 @@ export default function Navbar() {
           <div className="px-4 py-3 space-y-2">
             <Link
               href="/"
-              className="block text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-secondary)]"
+              className="block text-sm font-medium text-gray-900 hover:text-secondary-600"
               onClick={() => setOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/pricing"
-              className="block text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-secondary)]"
+              className="block text-sm font-medium text-gray-900 hover:text-secondary-600"
               onClick={() => setOpen(false)}
             >
               Pricing
             </Link>
             <a
               href="mailto:contact@liveboostph.com"
-              className="block text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-secondary)]"
+              className="block text-sm font-medium text-gray-900 hover:text-secondary-600"
               onClick={() => setOpen(false)}
             >
               Contact
             </a>
             <Link
               href="/pricing"
-              className="inline-flex items-center rounded-md bg-[var(--color-primary)] text-white px-3 py-2 text-sm font-medium hover:bg-[#e6602f]"
+              className="inline-flex items-center rounded-md bg-primary-500 text-white px-3 py-2 text-sm font-medium hover:bg-primary-600"
               onClick={() => setOpen(false)}
             >
               View Plans

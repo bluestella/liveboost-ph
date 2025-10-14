@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { ArrowRight, BarChart3, CalendarClock, Users } from "lucide-react";
-import EmailCapture from "@/components/EmailCapture";
 
 export default function Home() {
   // Email capture moved to dedicated component using RHF+Zod
@@ -28,12 +27,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Email Capture */}
-      <section id="subscribe" className="bg-orange-50">
-        <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
-          <EmailCapture />
-        </div>
-      </section>
+      {/* Email Capture removed for now */}
 
       {/* Value Proposition */}
       <section id="about" className="bg-white">

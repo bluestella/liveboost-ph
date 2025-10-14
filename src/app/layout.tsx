@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lora } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { Rocket } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
-const inter = Inter({
-  variable: "--font-inter",
+const lora = Lora({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -69,7 +69,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased bg-white text-gray-900`}>
+      <body className={`${lora.className} antialiased bg-white text-gray-900`}>
         <Navbar />
         <main>{children}</main>
         <Footer />

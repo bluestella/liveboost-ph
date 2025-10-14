@@ -7,7 +7,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-30 bg-white/90 backdrop-blur supports-[backdrop-filter]:backdrop-blur border-b border-black/10">
-      <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <Rocket className="h-5 w-5 text-orange-500" aria-hidden />
           <span>LiveBoost PH</span>
@@ -16,7 +16,7 @@ export default function Navbar() {
           <Link href="/" className="hover:text-blue-700">Home</Link>
           <Link href="/pricing" className="hover:text-blue-700">Pricing</Link>
           <Link href="/contact" className="hover:text-blue-700">Contact</Link>
-          <Link href="/pricing" className="ml-2 rounded-md bg-orange-500 text-white px-4 py-2 font-medium hover:bg-orange-600">Get Started</Link>
+          <Link href="/pricing" className="ml-2 rounded-lg bg-orange-500 text-white px-4 py-2 font-medium hover:bg-orange-600 shadow-md hover:shadow-xl">Get Started</Link>
         </nav>
         <button
           className="md:hidden inline-flex items-center justify-center rounded-md border px-3 py-2"
@@ -32,7 +32,7 @@ export default function Navbar() {
             <Link href="/" onClick={() => setOpen(false)}>Home</Link>
             <Link href="/pricing" onClick={() => setOpen(false)}>Pricing</Link>
             <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
-            <Link href="/pricing" className="rounded-md bg-orange-500 text-white px-4 py-2 font-medium" onClick={() => setOpen(false)}>Get Started</Link>
+            <Link href="/pricing" className="rounded-lg bg-orange-500 text-white px-4 py-2 font-medium shadow-md hover:shadow-xl" onClick={() => setOpen(false)}>Get Started</Link>
           </div>
         </div>
       )}

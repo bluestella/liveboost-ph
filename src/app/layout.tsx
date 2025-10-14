@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 function Footer() {
   return (
     <footer className="mt-20 border-t bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+      <div className="mx-auto max-w-7xl px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
         <div>
           <div className="flex items-center gap-2 font-bold">
             <Rocket className="h-4 w-4 text-orange-500" aria-hidden />
@@ -54,7 +54,7 @@ function Footer() {
         </div>
       </div>
       <div className="border-t">
-        <div className="mx-auto max-w-6xl px-4 py-4 text-xs text-gray-600">
+        <div className="mx-auto max-w-7xl px-4 py-4 text-xs text-gray-600">
           © 2025 LiveBoost PH. All rights reserved.
         </div>
       </div>

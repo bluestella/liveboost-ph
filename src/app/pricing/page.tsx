@@ -63,7 +63,7 @@ export default function PricingPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16">
+    <div className="mx-auto max-w-7xl px-4 py-16">
       {/* Hero */}
       <section className="text-center">
         <h1 className="text-3xl md:text-4xl font-bold">Choose Your Growth Plan</h1>
@@ -71,11 +71,11 @@ export default function PricingPage() {
       </section>
 
       {/* Cards */}
-      <section className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
         {plans.map((plan) => (
           <div
             key={plan.name}
-            className={`rounded-2xl border p-6 shadow bg-white transition hover:shadow-lg ${
+            className={`rounded-xl border p-6 shadow-lg bg-white transition hover:shadow-xl ${
               plan.highlighted ? "md:scale-[1.03] border-blue-600" : ""
             }`}
           >
@@ -97,7 +97,7 @@ export default function PricingPage() {
             </ul>
             <Link
               href="/contact"
-              className={`mt-6 inline-block rounded-md px-5 py-2 font-semibold ${
+              className={`mt-6 inline-block rounded-lg px-5 py-2 font-semibold shadow-md hover:shadow-xl ${
                 plan.highlighted
                   ? "bg-orange-500 text-white hover:bg-orange-600"
                   : "border hover:bg-gray-50"
@@ -141,7 +141,7 @@ export default function PricingPage() {
         <h2 className="text-2xl font-bold text-center">Compare Features</h2>
         <div className="mt-6 space-y-4">
           {plans.map((plan) => (
-            <details key={plan.name} className="rounded-xl border bg-white p-4 shadow">
+            <details key={plan.name} className="rounded-xl border bg-white p-4 shadow-lg">
               <summary className="cursor-pointer font-semibold">{plan.name}</summary>
               <ul className="mt-3 space-y-2 text-sm text-gray-700">
                 {comparison.map((row) => (
@@ -172,7 +172,7 @@ export default function PricingPage() {
             { q: "What if I need to cancel?", a: "You can cancel anytime before the next billing date." },
             { q: "Do you offer trial periods?", a: "We can arrange a single paid test session under the Starter plan." },
           ].map((item) => (
-            <details key={item.q} className="rounded-xl border bg-white p-4 shadow">
+            <details key={item.q} className="rounded-xl border bg-white p-4 shadow-lg">
               <summary className="cursor-pointer font-semibold">{item.q}</summary>
               <p className="mt-2 text-gray-700">{item.a}</p>
             </details>
@@ -183,7 +183,7 @@ export default function PricingPage() {
       {/* Bottom CTA */}
       <section className="mt-16 text-center">
         <p className="text-gray-800">Not sure which plan? Contact us for a recommendation.</p>
-        <Link href="/contact" className="mt-4 inline-block rounded-md bg-blue-600 text-white px-5 py-2 font-semibold hover:bg-blue-700">
+        <Link href="/contact" className="mt-4 inline-block rounded-lg bg-blue-600 text-white px-5 py-2 font-semibold hover:bg-blue-700 shadow-md hover:shadow-xl">
           Contact Us
         </Link>
       </section>

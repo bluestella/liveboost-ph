@@ -18,7 +18,8 @@ export async function POST(request: Request) {
 
     await Promise.all([sendAdminNotification(email, source), sendWelcomeEmail(email)]);
     return NextResponse.json({ success: true });
-  } catch (err) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (_err) {
     return NextResponse.json({ error: "Unexpected error" }, { status: 500 });
   }
 }

@@ -63,167 +63,256 @@ export default function PricingPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* Hero */}
-      <section className="text-center">
-        <h1 className="text-3xl md:text-4xl font-bold">Choose Your Growth Plan</h1>
-        <p className="mt-2 text-gray-700">Flexible monthly subscriptions. No contracts. Cancel anytime.</p>
+      <section className="relative py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-orange-600/10"></div>
+        <div className="absolute top-10 left-10 w-72 h-72 bg-gradient-to-r from-orange-400/20 to-red-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
+        
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            Choose Your 
+            <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent"> Growth </span>
+            Plan
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+            Flexible monthly subscriptions. No contracts. Cancel anytime.
+          </p>
+        </div>
       </section>
 
       {/* Cards */}
-      <section className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-        {plans.map((plan) => (
-          <div
-            key={plan.name}
-            className={`rounded-xl border p-6 shadow-lg bg-white transition hover:shadow-xl ${
-              plan.highlighted ? "md:scale-[1.03] border-blue-600" : ""
-            }`}
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-xs rounded-full bg-gray-100 px-3 py-1">
-                {plan.badge}
-              </span>
-              {plan.highlighted && <Star className="h-4 w-4 text-yellow-500" aria-hidden />}
-            </div>
-            <h3 className="mt-3 text-xl font-bold">{plan.name}</h3>
-            <div className="mt-1 text-2xl font-semibold">{plan.price}</div>
-            <ul className="mt-4 space-y-2 text-gray-700">
-              {plan.features.map((f) => (
-                <li key={f} className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 text-green-600" aria-hidden />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-            <Link
-              href="/contact"
-              className={`mt-6 inline-block rounded-lg px-5 py-2 font-semibold shadow-md hover:shadow-xl ${
-                plan.highlighted
-                  ? "bg-orange-500 text-white hover:bg-orange-600"
-                  : "border hover:bg-gray-50"
+      <section className="relative py-24 mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {plans.map((plan, index) => (
+            <div
+              key={plan.name}
+              className={`group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2 ${
+                plan.highlighted ? "md:scale-105 ring-2 ring-orange-500/50" : ""
               }`}
             >
-              Get Started
-            </Link>
-          </div>
-        ))}
+              {plan.highlighted && (
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                    {plan.badge}
+                  </div>
+                </div>
+              )}
+              
+              <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+                index === 0 ? "bg-gradient-to-br from-blue-50 to-indigo-50" :
+                index === 1 ? "bg-gradient-to-br from-orange-50 to-red-50" :
+                "bg-gradient-to-br from-purple-50 to-pink-50"
+              }`}></div>
+              
+              <div className="relative">
+                {!plan.highlighted && (
+                  <div className="mb-6">
+                    <span className="inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold">
+                      {plan.badge}
+                    </span>
+                  </div>
+                )}
+                
+                <div className="mb-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                  <div className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                    {plan.price}
+                  </div>
+                </div>
+                
+                <ul className="space-y-4 mb-8">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                        index === 0 ? "bg-blue-100" :
+                        index === 1 ? "bg-orange-100" :
+                        "bg-purple-100"
+                      }`}>
+                        <Check className={`h-4 w-4 ${
+                          index === 0 ? "text-blue-600" :
+                          index === 1 ? "text-orange-600" :
+                          "text-purple-600"
+                        }`} />
+                      </div>
+                      <span className="text-gray-700 leading-relaxed">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Link
+                  href="/contact"
+                  className={`w-full inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:-translate-y-1 ${
+                    plan.highlighted
+                      ? "bg-gradient-to-r from-orange-500 to-red-500 text-white hover:shadow-2xl hover:shadow-orange-500/25"
+                      : index === 0
+                      ? "bg-gradient-to-r from-blue-500 to-indigo-500 text-white hover:shadow-2xl hover:shadow-blue-500/25"
+                      : "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-2xl hover:shadow-purple-500/25"
+                  }`}
+                >
+                  Get Started
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* Feature Comparison (responsive grid) */}
-      <section className="mt-14">
-        <h2 className="text-2xl font-bold text-center">Compare Features</h2>
-        <div className="mt-6">
-          <div className="grid md:grid-cols-4 md:-mx-6 text-sm">
-            {/* Labels column */}
-            <section className="md:contents">
-              {/* Header cell */}
-              <div
-                className="p-4 md:px-6 md:py-4 border border-gray-200 bg-gray-50 font-semibold rounded-xl md:rounded-none text-left"
-                style={{ order: 1 }}
-              >
-                Feature
-              </div>
-              {comparison.map((row, i) => (
+      {/* Feature Comparison */}
+      <section className="py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4">
+              Compare Features
+            </h2>
+            <p className="text-xl text-gray-600">See what&apos;s included in each plan</p>
+          </div>
+          
+          <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+            <div className="grid md:grid-cols-4 text-sm">
+              {/* Labels column */}
+              <section className="md:contents">
+                {/* Header cell */}
                 <div
-                  key={row.feature}
-                  className="p-4 md:px-6 md:py-4 border border-gray-200 bg-white text-gray-800 text-left"
-                  style={{ order: 5 + i * 4 }}
+                  className="p-6 bg-gradient-to-r from-slate-50 to-gray-50 font-bold text-gray-900 text-left border-b border-gray-200"
+                  style={{ order: 1 }}
                 >
-                  {row.feature}
+                  Feature
                 </div>
-              ))}
-            </section>
+                {comparison.map((row, i) => (
+                  <div
+                    key={row.feature}
+                    className="p-6 bg-white text-gray-800 text-left border-b border-gray-100 font-medium"
+                    style={{ order: 5 + i * 4 }}
+                  >
+                    {row.feature}
+                  </div>
+                ))}
+              </section>
 
-            {/* Starter column */}
-            <section className="md:contents">
-              <div
-                className="p-4 md:px-6 md:py-4 border border-gray-200 bg-white font-semibold rounded-xl md:rounded-none text-center"
-                style={{ order: 2 }}
-              >
-                <div className="font-bold">{plans[0].name}</div>
-                <div className="text-2xl font-bold">{plans[0].price}</div>
-              </div>
-              {comparison.map((row, i) => (
+              {/* Starter column */}
+              <section className="md:contents">
                 <div
-                  key={row.feature}
-                  className="p-4 md:px-6 md:py-4 border border-gray-200 bg-white text-center"
-                  style={{ order: 6 + i * 4 }}
+                  className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 font-bold text-center border-b border-gray-200"
+                  style={{ order: 2 }}
                 >
-                  {row.starter}
+                  <div className="text-lg font-bold text-gray-900">{plans[0].name}</div>
+                  <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                    {plans[0].price}
+                  </div>
                 </div>
-              ))}
-            </section>
+                {comparison.map((row, i) => (
+                  <div
+                    key={row.feature}
+                    className="p-6 bg-blue-50/30 text-center border-b border-gray-100 font-semibold text-gray-700"
+                    style={{ order: 6 + i * 4 }}
+                  >
+                    {row.starter}
+                  </div>
+                ))}
+              </section>
 
-            {/* Growth column */}
-            <section className="md:contents">
-              <div
-                className="p-4 md:px-6 md:py-4 border border-gray-200 bg-orange-50 font-semibold rounded-xl md:rounded-none text-center ring-2 ring-orange-500"
-                style={{ order: 3 }}
-              >
-                <div className="font-bold">{plans[1].name}</div>
-                <div className="text-2xl font-bold">{plans[1].price}</div>
-                <div className="mt-1 text-xs inline-block rounded-full bg-orange-200 text-orange-900 px-2 py-0.5">{plans[1].badge}</div>
-              </div>
-              {comparison.map((row, i) => (
+              {/* Growth column */}
+              <section className="md:contents">
                 <div
-                  key={row.feature}
-                  className="p-4 md:px-6 md:py-4 border border-gray-200 bg-orange-50 text-center"
-                  style={{ order: 7 + i * 4 }}
+                  className="p-6 bg-gradient-to-br from-orange-100 to-red-100 font-bold text-center border-b border-gray-200 relative"
+                  style={{ order: 3 }}
                 >
-                  {row.growth}
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-1 rounded-full text-xs font-bold">
+                      Most Popular
+                    </div>
+                  </div>
+                  <div className="text-lg font-bold text-gray-900 mt-2">{plans[1].name}</div>
+                  <div className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                    {plans[1].price}
+                  </div>
                 </div>
-              ))}
-            </section>
+                {comparison.map((row, i) => (
+                  <div
+                    key={row.feature}
+                    className="p-6 bg-orange-50/50 text-center border-b border-gray-100 font-semibold text-gray-700"
+                    style={{ order: 7 + i * 4 }}
+                  >
+                    {row.growth}
+                  </div>
+                ))}
+              </section>
 
-            {/* Premium column */}
-            <section className="md:contents">
-              <div
-                className="p-4 md:px-6 md:py-4 border border-gray-200 bg-white font-semibold rounded-xl md:rounded-none text-center"
-                style={{ order: 4 }}
-              >
-                <div className="font-bold">{plans[2].name}</div>
-                <div className="text-2xl font-bold">{plans[2].price}</div>
-              </div>
-              {comparison.map((row, i) => (
+              {/* Premium column */}
+              <section className="md:contents">
                 <div
-                  key={row.feature}
-                  className="p-4 md:px-6 md:py-4 border border-gray-200 bg-white text-center"
-                  style={{ order: 8 + i * 4 }}
+                  className="p-6 bg-gradient-to-br from-purple-50 to-pink-50 font-bold text-center border-b border-gray-200"
+                  style={{ order: 4 }}
                 >
-                  {row.premium}
+                  <div className="text-lg font-bold text-gray-900">{plans[2].name}</div>
+                  <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    {plans[2].price}
+                  </div>
                 </div>
-              ))}
-            </section>
+                {comparison.map((row, i) => (
+                  <div
+                    key={row.feature}
+                    className="p-6 bg-purple-50/30 text-center border-b border-gray-100 font-semibold text-gray-700"
+                    style={{ order: 8 + i * 4 }}
+                  >
+                    {row.premium}
+                  </div>
+                ))}
+              </section>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold text-center">Frequently Asked Questions</h2>
-        <div className="mt-6 max-w-3xl mx-auto space-y-3">
-          {[
-            { q: "Can I switch plans anytime?", a: "Yes, you can upgrade or downgrade at the end of any billing cycle." },
-            { q: "What platforms do you support?", a: "Shopee, Lazada, and TikTok Shop." },
-            { q: "How quickly can we start?", a: "Typically within 3-5 business days after onboarding details are provided." },
-            { q: "Do you provide the products?", a: "No, we host and sell your products during live sessions." },
-            { q: "What if I need to cancel?", a: "You can cancel anytime before the next billing date." },
-            { q: "Do you offer trial periods?", a: "We can arrange a single paid test session under the Starter plan." },
-          ].map((item) => (
-            <details key={item.q} className="rounded-xl border bg-white p-4 shadow-lg">
-              <summary className="cursor-pointer font-semibold">{item.q}</summary>
-              <p className="mt-2 text-gray-700">{item.a}</p>
-            </details>
-          ))}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-gray-100">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-600">Everything you need to know about our plans</p>
+          </div>
+          
+          <div className="space-y-6">
+            {[
+              { q: "Can I switch plans anytime?", a: "Yes, you can upgrade or downgrade at the end of any billing cycle. We'll prorate any differences and make the transition seamless." },
+              { q: "What platforms do you support?", a: "We specialize in Shopee, Lazada, and TikTok Shop - the three major e-commerce platforms in the Philippines and Southeast Asia." },
+              { q: "How quickly can we start?", a: "Typically within 3-5 business days after onboarding details are provided. We'll work with you to set up your first live session as soon as possible." },
+              { q: "Do you provide the products?", a: "No, we host and sell your products during live sessions. You maintain full control over your inventory and product selection." },
+              { q: "What if I need to cancel?", a: "You can cancel anytime before the next billing date. No long-term contracts or cancellation fees - we believe in earning your business every month." },
+              { q: "Do you offer trial periods?", a: "We can arrange a single paid test session under the Starter plan to help you experience our service before committing to a full month." },
+            ].map((item) => (
+              <div key={item.q} className="bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.q}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Bottom CTA */}
-      <section className="mt-16 text-center">
-        <p className="text-gray-800">Not sure which plan? Contact us for a recommendation.</p>
-        <Link href="/contact" className="mt-4 inline-block rounded-lg bg-blue-600 text-white px-5 py-2 font-semibold hover:bg-blue-700 shadow-md hover:shadow-xl">
-          Contact Us
-        </Link>
+      <section className="py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            Ready to <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Transform</span> Your Business?
+          </h2>
+          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Not sure which plan is right for you? Contact us for a personalized recommendation based on your business needs and goals.
+          </p>
+          <Link href="/contact" className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-10 py-4 rounded-2xl text-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-blue-500/25 inline-flex items-center gap-3">
+            Contact Us for Recommendation
+          </Link>
+        </div>
       </section>
     </div>
   );

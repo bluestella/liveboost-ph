@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, Star } from "lucide-react";
+import PricingCard, { Plan } from "@/components/PricingCard";
+import CompareTable from "@/components/CompareTable";
 
 export default function PricingPage() {
-  const plans = [
+  const plans: Plan[] = [
     {
       name: "STARTER",
       price: "₱8,999/month",
@@ -82,79 +83,16 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Cards */}
+      <section className="py-24 bg-white dark:bg-slate-900">
+        <div className="mx-auto max-w-7xl px-6">
+          <CompareTable planLabels={[plans[0].name, plans[1].name, plans[2].name]} planPrices={[plans[0].price, plans[1].price, plans[2].price]} rows={comparison} />
+        </div>
+      </section>
+
       <section className="relative py-24 mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
-            <div
-              key={plan.name}
-              className={`group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2 ${
-                plan.highlighted ? "md:scale-105 ring-2 ring-orange-500/50" : ""
-              }`}
-            >
-              {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                    {plan.badge}
-                  </div>
-                </div>
-              )}
-              
-              <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
-                index === 0 ? "bg-gradient-to-br from-blue-50 to-indigo-50" :
-                index === 1 ? "bg-gradient-to-br from-orange-50 to-red-50" :
-                "bg-gradient-to-br from-purple-50 to-pink-50"
-              }`}></div>
-              
-              <div className="relative">
-                {!plan.highlighted && (
-                  <div className="mb-6">
-                    <span className="inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold">
-                      {plan.badge}
-                    </span>
-                  </div>
-                )}
-                
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                  <div className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                    {plan.price}
-                  </div>
-                </div>
-                
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                        index === 0 ? "bg-blue-100" :
-                        index === 1 ? "bg-orange-100" :
-                        "bg-purple-100"
-                      }`}>
-                        <Check className={`h-4 w-4 ${
-                          index === 0 ? "text-blue-600" :
-                          index === 1 ? "text-orange-600" :
-                          "text-purple-600"
-                        }`} />
-                      </div>
-                      <span className="text-gray-700 leading-relaxed">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <Link
-                  href="/contact"
-                  className={`w-full inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:-translate-y-1 ${
-                    plan.highlighted
-                      ? "bg-gradient-to-r from-orange-500 to-red-500 text-white hover:shadow-2xl hover:shadow-orange-500/25"
-                      : index === 0
-                      ? "bg-gradient-to-r from-blue-500 to-indigo-500 text-white hover:shadow-2xl hover:shadow-blue-500/25"
-                      : "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-2xl hover:shadow-purple-500/25"
-                  }`}
-                >
-                  Get Started
-                </Link>
-              </div>
-            </div>
+            <PricingCard key={plan.name} plan={plan} index={index} />
           ))}
         </div>
       </section>

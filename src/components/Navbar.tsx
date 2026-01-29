@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { Menu, Rocket, X } from "lucide-react";
 import { useState } from "react";
+import { siteConfig } from "@/site.config";
+import DarkModeToggle from "./DarkModeToggle";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -13,29 +15,26 @@ export default function Navbar() {
             <Rocket className="h-5 w-5 text-white" aria-hidden />
           </div>
           <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-            LiveBoost PH
+            {siteConfig.siteName}
           </span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors relative group">
-            Home
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-full transition-all duration-300"></span>
-          </Link>
-          <Link href="/pricing" className="text-gray-700 hover:text-gray-900 font-medium transition-colors relative group">
-            Pricing
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-full transition-all duration-300"></span>
-          </Link>
-          <Link href="/contact" className="text-gray-700 hover:text-gray-900 font-medium transition-colors relative group">
-            Contact
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-full transition-all duration-300"></span>
-          </Link>
-          <Link 
-            href="/pricing" 
-            className="ml-4 px-6 py-2.5 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-orange-500/25 transform hover:-translate-y-0.5 transition-all duration-300"
-          >
-            Get Started
-          </Link>
+          {siteConfig.navigation.map((item) => (
+            <Link key={item.href} href={item.href} className="text-gray-700 hover:text-gray-900 font-medium transition-colors relative group">
+              {item.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-full transition-all duration-300"></span>
+            </Link>
+          ))}
+          <div className="flex items-center gap-4">
+            <DarkModeToggle />
+            <Link 
+              href="/pricing" 
+              className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-orange-500/25 transform hover:-translate-y-0.5 transition-all duration-300"
+            >
+              Get Started
+            </Link>
+          </div>
         </nav>
         
         <button
@@ -50,27 +49,16 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden border-t border-gray-200/50 bg-white/95 backdrop-blur-xl">
           <div className="px-6 py-6 flex flex-col gap-4">
-            <Link 
-              href="/" 
-              onClick={() => setOpen(false)}
-              className="text-gray-700 hover:text-gray-900 font-medium py-2 transition-colors"
-            >
-              Home
-            </Link>
-            <Link 
-              href="/pricing" 
-              onClick={() => setOpen(false)}
-              className="text-gray-700 hover:text-gray-900 font-medium py-2 transition-colors"
-            >
-              Pricing
-            </Link>
-            <Link 
-              href="/contact" 
-              onClick={() => setOpen(false)}
-              className="text-gray-700 hover:text-gray-900 font-medium py-2 transition-colors"
-            >
-              Contact
-            </Link>
+            {siteConfig.navigation.map((item) => (
+              <Link 
+                key={item.href}
+                href={item.href} 
+                onClick={() => setOpen(false)}
+                className="text-gray-700 hover:text-gray-900 font-medium py-2 transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
             <Link 
               href="/pricing" 
               className="mt-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-xl text-center hover:shadow-lg transition-all duration-300" 

@@ -6,23 +6,21 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-orange-600/20"></div>
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-orange-400/30 to-red-400/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-full blur-3xl"></div>
+      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 overflow-hidden">
+        <div className="spotlight"></div>
+        <div className="absolute inset-0">
+          <div className="bg-animated absolute -inset-20 blur-3xl opacity-40" style={{ backgroundImage: "radial-gradient(650px 350px at 20% 20%, rgba(255,153,51,.6), transparent 60%), radial-gradient(550px 300px at 80% 30%, rgba(99,102,241,.6), transparent 60%), radial-gradient(600px 300px at 40% 80%, rgba(236,72,153,.6), transparent 60%)" }} />
+        </div>
         
         <div className="relative mx-auto max-w-7xl px-6 py-20 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-8 border border-white/20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-white/90 text-sm font-medium mb-8">
             <Sparkles className="h-4 w-4" />
-            #1 Live Selling Agency in Philippines
+            Astronomically good live commerce experiences
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-            Transform Your
-            <span className="block bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">
-              E-Commerce Sales
-            </span>
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+            <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">Supercharge</span>
+            <span className="block bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">E‑Commerce Growth</span>
             with Live Selling
           </h1>
           
@@ -41,10 +39,25 @@ export default function Home() {
             </Link>
             <a 
               href="#about" 
-              className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300"
+              className="px-8 py-4 glass-card text-white font-semibold rounded-2xl border border-white/10 hover:bg-white/20 transition-all duration-300"
             >
               Learn More
             </a>
+          </div>
+          
+          <div className="mt-14 marquee">
+            <div className="marquee-track">
+              {["Trusted by 500+ brands","Awwwards-worthy polish","Godly-inspired details","Conversion-first strategy","Philippines #1 agency"].map((label, i) => (
+                <div key={i} className="px-5 py-2 rounded-full glass-card border border-white/10 text-white/90 text-sm">
+                  {label}
+                </div>
+              ))}
+              {["Trusted by 500+ brands","Awwwards-worthy polish","Godly-inspired details","Conversion-first strategy","Philippines #1 agency"].map((label, i) => (
+                <div key={`dup-${i}`} className="px-5 py-2 rounded-full glass-card border border-white/10 text-white/90 text-sm">
+                  {label}
+                </div>
+              ))}
+            </div>
           </div>
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -79,36 +92,33 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="group relative glass-card rounded-3xl p-8 transition-all duration-500 border border-gray-100/50 dark:border-white/10 hover:-translate-y-2">
               <div className="relative">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6">
                   <Users className="h-8 w-8 text-white" aria-hidden />
                 </div>
-                <h4 className="text-2xl font-bold text-gray-900 mb-4">Expert Hosts</h4>
-                <p className="text-gray-600 leading-relaxed">Charismatic, trained professionals who know how to engage audiences and drive sales on every major platform.</p>
+                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Expert Hosts</h4>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Charismatic, trained professionals who know how to engage audiences and drive sales on every major platform.</p>
               </div>
             </div>
             
-            <div className="group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-red-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="group relative glass-card rounded-3xl p-8 transition-all duration-500 border border-gray-100/50 dark:border-white/10 hover:-translate-y-2">
               <div className="relative">
                 <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6">
                   <TrendingUp className="h-8 w-8 text-white" aria-hidden />
                 </div>
-                <h4 className="text-2xl font-bold text-gray-900 mb-4">Proven Results</h4>
-                <p className="text-gray-600 leading-relaxed">Data-driven strategies and conversion-optimized scripts that consistently deliver measurable growth.</p>
+                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Proven Results</h4>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Data-driven strategies and conversion-optimized scripts that consistently deliver measurable growth.</p>
               </div>
             </div>
             
-            <div className="group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="group relative glass-card rounded-3xl p-8 transition-all duration-500 border border-gray-100/50 dark:border-white/10 hover:-translate-y-2">
               <div className="relative">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
                   <CalendarClock className="h-8 w-8 text-white" aria-hidden />
                 </div>
-                <h4 className="text-2xl font-bold text-gray-900 mb-4">Flexible Solutions</h4>
-                <p className="text-gray-600 leading-relaxed">From one-time campaigns to ongoing partnerships—we scale with your business needs.</p>
+                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Flexible Solutions</h4>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">From one-time campaigns to ongoing partnerships—we scale with your business needs.</p>
               </div>
             </div>
           </div>

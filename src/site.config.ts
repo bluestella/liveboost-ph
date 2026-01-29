@@ -17,6 +17,7 @@ export const siteConfig = {
   logo: "/logo.svg",
   navigation: [
     { label: "Home", href: "/" },
+    { label: "Pricing", href: "/pricing" },
     { label: "Resources", href: "/resources" },
     { label: "Apply", href: "/apply" },
   ] as NavigationItem[],

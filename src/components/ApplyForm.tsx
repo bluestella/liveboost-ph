@@ -54,6 +54,12 @@ export default function ApplyForm() {
   } = useForm<FormValues>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (values: FormValues) => {
+    if (!supabase) {
+      setStatus("error");
+      setError("Form is not configured yet. Please try again later.");
+      return;
+    }
+
     setStatus("submitting");
     setError(null);
 

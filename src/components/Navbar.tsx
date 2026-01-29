@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Menu, Rocket, X } from "lucide-react";
 import { useState } from "react";
 import { siteConfig } from "@/site.config";
-import DarkModeToggle from "./DarkModeToggle";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -32,7 +31,6 @@ export default function Navbar() {
               </Link>
             ))}
           <div className="flex items-center gap-3">
-            <DarkModeToggle />
             <Link
               href="/apply"
               className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#4C6FFF] to-[#35D0BA] text-[#0B0F1A] font-semibold hover:opacity-95 transition-opacity"

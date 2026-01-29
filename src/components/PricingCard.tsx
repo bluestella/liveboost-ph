@@ -72,7 +72,7 @@ export default function PricingCard({ plan, index }: { plan: Plan; index: number
         ))}
       </ul>
       <Link
-        href="/contact"
+        href="/apply"
         className={`w-full inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:-translate-y-1 bg-gradient-to-r ${theme.gradient} text-white hover:shadow-2xl ${theme.shadow}`}
       >
         Get Started

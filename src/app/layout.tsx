@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
-import { Rocket } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -13,9 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "LiveBoost PH — Professional Live Selling",
+  title: "LiveBoost PH — Live Selling Teams That Convert",
   description:
-    "Professional hosts for Shopee, Lazada & TikTok Shop. No hiring hassles, just results.",
+    "Professional live selling teams for Shopee, Lazada & TikTok Shop. Launch faster, convert more, scale with confidence.",
 };
 
 // Navbar is a client component in src/components/Navbar
@@ -26,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased bg-gradient-to-br from-slate-50 via-white to-slate-50 text-gray-900 min-h-screen`}>
+    <html lang="en" className="dark">
+      <body className={`${inter.className} antialiased bg-[#0B0F1A] text-white min-h-screen`}>
         <Navbar />
         <main>{children}</main>
         <Footer />

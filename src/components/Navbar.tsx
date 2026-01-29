@@ -8,37 +8,42 @@ import DarkModeToggle from "./DarkModeToggle";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:backdrop-blur-xl border-b border-gray-200/50 shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0B0F1A]/70 backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="p-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl group-hover:shadow-lg transition-all duration-300">
+          <div className="p-2 rounded-xl bg-white/5 border border-white/10 group-hover:bg-white/10 transition-all duration-200">
             <Rocket className="h-5 w-5 text-white" aria-hidden />
           </div>
-          <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+          <span className="text-xl font-semibold tracking-tight text-white">
             {siteConfig.siteName}
           </span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-8">
-          {siteConfig.navigation.map((item) => (
-            <Link key={item.href} href={item.href} className="text-gray-700 hover:text-gray-900 font-medium transition-colors relative group">
-              {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-full transition-all duration-300"></span>
-            </Link>
-          ))}
-          <div className="flex items-center gap-4">
+          {siteConfig.navigation
+            .filter((i) => i.href !== "/apply")
+            .map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-white/75 hover:text-white transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          <div className="flex items-center gap-3">
             <DarkModeToggle />
-            <Link 
-              href="/pricing" 
-              className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-orange-500/25 transform hover:-translate-y-0.5 transition-all duration-300"
+            <Link
+              href="/apply"
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#4C6FFF] to-[#35D0BA] text-[#0B0F1A] font-semibold hover:opacity-95 transition-opacity"
             >
-              Get Started
+              Apply
             </Link>
           </div>
         </nav>
         
         <button
-          className="md:hidden inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white/50 backdrop-blur-sm px-3 py-2 hover:bg-white/80 transition-all duration-200"
+          className="md:hidden inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 backdrop-blur-md px-3 py-2 hover:bg-white/10 transition-all duration-200"
           aria-label="Toggle Menu"
           onClick={() => setOpen(!open)}
         >
@@ -47,24 +52,26 @@ export default function Navbar() {
       </div>
       
       {open && (
-        <div className="md:hidden border-t border-gray-200/50 bg-white/95 backdrop-blur-xl">
+        <div className="md:hidden border-t border-white/10 bg-[#0B0F1A]/90 backdrop-blur-xl">
           <div className="px-6 py-6 flex flex-col gap-4">
-            {siteConfig.navigation.map((item) => (
-              <Link 
-                key={item.href}
-                href={item.href} 
-                onClick={() => setOpen(false)}
-                className="text-gray-700 hover:text-gray-900 font-medium py-2 transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link 
-              href="/pricing" 
-              className="mt-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-xl text-center hover:shadow-lg transition-all duration-300" 
+            {siteConfig.navigation
+              .filter((i) => i.href !== "/apply")
+              .map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm font-medium text-white/80 hover:text-white py-2 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            <Link
+              href="/apply"
+              className="mt-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#4C6FFF] to-[#35D0BA] text-[#0B0F1A] font-semibold text-center hover:opacity-95 transition-opacity"
               onClick={() => setOpen(false)}
             >
-              Get Started
+              Apply
             </Link>
           </div>
         </div>

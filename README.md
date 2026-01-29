@@ -1,5 +1,20 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Supabase setup (Apply form)
+
+1. Create a Supabase project.
+2. In Supabase Dashboard → Project Settings → API, copy:
+   - Project URL → `NEXT_PUBLIC_SUPABASE_URL`
+   - `anon` public key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+3. Create `.env.local` in the project root (copy from `.env.local.example`).
+4. Create the `leads` table by running the SQL in `supabase/migrations/create_leads.sql` inside Supabase Dashboard → SQL Editor.
+5. Verify:
+   - Table `public.leads` exists
+   - RLS is enabled
+   - Policy `leads_anon_insert` exists (public insert)
+
+If deploying on Vercel, add the same env vars in Project Settings → Environment Variables.
+
 ## Getting Started
 
 First, run the development server:

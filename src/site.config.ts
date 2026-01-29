@@ -12,13 +12,13 @@ export type SocialLinks = {
 export const siteConfig = {
   siteName: "LiveBoost PH",
   siteDescription:
-    "Professional hosts for Shopee, Lazada & TikTok Shop. No hiring hassles, just results.",
+    "Professional live selling teams for Shopee, Lazada & TikTok Shop.",
   siteUrl: "https://liveboostph.com",
   logo: "/logo.svg",
   navigation: [
     { label: "Home", href: "/" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Contact", href: "/contact" },
+    { label: "Resources", href: "/resources" },
+    { label: "Apply", href: "/apply" },
   ] as NavigationItem[],
   socialMedia: {
     facebook: "#",

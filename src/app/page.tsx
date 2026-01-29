@@ -1,219 +1,240 @@
-"use client";
 import Link from "next/link";
-import { ArrowRight, BarChart3, CalendarClock, Users, Sparkles, TrendingUp } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  BookOpen,
+  LineChart,
+  Mic2,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
 
 export default function Home() {
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 overflow-hidden">
-        <div className="spotlight"></div>
+      <section className="relative">
         <div className="absolute inset-0">
-          <div className="bg-animated absolute -inset-20 blur-3xl opacity-40" style={{ backgroundImage: "radial-gradient(650px 350px at 20% 20%, rgba(255,153,51,.6), transparent 60%), radial-gradient(550px 300px at 80% 30%, rgba(99,102,241,.6), transparent 60%), radial-gradient(600px 300px at 40% 80%, rgba(236,72,153,.6), transparent 60%)" }} />
+          <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-gradient-to-r from-[#4C6FFF]/25 to-[#35D0BA]/20 blur-3xl" />
+          <div className="absolute top-40 left-10 h-[380px] w-[380px] rounded-full bg-white/5 blur-3xl" />
         </div>
-        
-        <div className="relative mx-auto max-w-7xl px-6 py-20 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-white/90 text-sm font-medium mb-8">
-            <Sparkles className="h-4 w-4" />
-            Astronomically good live commerce experiences
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">Supercharge</span>
-            <span className="block bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">E‑Commerce Growth</span>
-            with Live Selling
-          </h1>
-          
-          <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Professional hosts for Shopee, Lazada & TikTok Shop. 
-            <span className="text-white font-semibold"> No hiring hassles, just results.</span>
-          </p>
-          
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link 
-              href="/pricing" 
-              className="group px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-2xl hover:shadow-2xl hover:shadow-orange-500/25 transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-3"
-            >
-              Start Growing Today
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <a 
-              href="#about" 
-              className="px-8 py-4 glass-card text-white font-semibold rounded-2xl border border-white/10 hover:bg-white/20 transition-all duration-300"
-            >
-              Learn More
-            </a>
-          </div>
-          
-          <div className="mt-14 marquee">
-            <div className="marquee-track">
-              {["Trusted by 500+ brands","Awwwards-worthy polish","Godly-inspired details","Conversion-first strategy","Philippines #1 agency"].map((label, i) => (
-                <div key={i} className="px-5 py-2 rounded-full glass-card border border-white/10 text-white/90 text-sm">
-                  {label}
-                </div>
-              ))}
-              {["Trusted by 500+ brands","Awwwards-worthy polish","Godly-inspired details","Conversion-first strategy","Philippines #1 agency"].map((label, i) => (
-                <div key={`dup-${i}`} className="px-5 py-2 rounded-full glass-card border border-white/10 text-white/90 text-sm">
-                  {label}
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white">500+</div>
-              <div className="text-gray-300">Successful Campaigns</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white">300%</div>
-              <div className="text-gray-300">Average Sales Increase</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white">24/7</div>
-              <div className="text-gray-300">Support Available</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Email Capture removed for now */}
-
-      {/* Value Proposition */}
-      <section id="about" className="relative py-24 bg-gradient-to-br from-white via-slate-50 to-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              Why Choose LiveBoost PH?
-            </h2>
-            <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
-               We&apos;re not just another agency. We&apos;re your growth partners.
-             </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="group relative glass-card rounded-3xl p-8 transition-all duration-500 border border-gray-100/50 dark:border-white/10 hover:-translate-y-2">
-              <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6">
-                  <Users className="h-8 w-8 text-white" aria-hidden />
-                </div>
-                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Expert Hosts</h4>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Charismatic, trained professionals who know how to engage audiences and drive sales on every major platform.</p>
+        <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80">
+                <BadgeCheck className="h-4 w-4 text-[#35D0BA]" aria-hidden />
+                Live selling teams built for conversion
+              </div>
+              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
+                Scale live commerce on Shopee, Lazada, and TikTok Shop
+              </h1>
+              <p className="mt-5 text-lg text-white/70 max-w-xl">
+                We provide trained hosts, run-of-show, scripting, and performance reporting—so you can launch faster and sell more without hiring overhead.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#4C6FFF] to-[#35D0BA] px-6 py-3 font-semibold text-[#0B0F1A] hover:opacity-95 transition-opacity"
+                >
+                  Apply
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                </Link>
+                <Link
+                  href="/resources"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-6 py-3 font-semibold text-white hover:bg-white/10 transition-colors"
+                >
+                  View resources
+                  <BookOpen className="h-4 w-4" aria-hidden />
+                </Link>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-3 text-sm text-white/60">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
+                  <ShieldCheck className="h-4 w-4 text-white/70" aria-hidden />
+                  Response within 24 hours
+                </span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
+                  <LineChart className="h-4 w-4 text-white/70" aria-hidden />
+                  Reporting + optimization
+                </span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
+                  <Users className="h-4 w-4 text-white/70" aria-hidden />
+                  Trained hosts + producers
+                </span>
               </div>
             </div>
-            
-            <div className="group relative glass-card rounded-3xl p-8 transition-all duration-500 border border-gray-100/50 dark:border-white/10 hover:-translate-y-2">
-              <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6">
-                  <TrendingUp className="h-8 w-8 text-white" aria-hidden />
-                </div>
-                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Proven Results</h4>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Data-driven strategies and conversion-optimized scripts that consistently deliver measurable growth.</p>
-              </div>
-            </div>
-            
-            <div className="group relative glass-card rounded-3xl p-8 transition-all duration-500 border border-gray-100/50 dark:border-white/10 hover:-translate-y-2">
-              <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
-                  <CalendarClock className="h-8 w-8 text-white" aria-hidden />
-                </div>
-                <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Flexible Solutions</h4>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">From one-time campaigns to ongoing partnerships—we scale with your business needs.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* How It Works */}
-      <section className="relative py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-orange-600/10"></div>
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Start Selling in 5 Easy Steps
-            </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              From signup to success in less than a week
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-5 gap-6">
-            {["Choose Your Plan","Sign Up & Pay","Share Your Details","Setup Call","Go Live"].map((step, i) => (
-              <div key={step} className="relative group">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 h-full">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center text-white font-bold text-lg mx-auto mb-4">
-                    {i + 1}
+            <div className="relative">
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
+                <div className="rounded-2xl bg-[#070A12] border border-white/10 p-6">
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm font-semibold text-white/90">Weekly performance snapshot</div>
+                    <div className="text-xs text-white/50">Sample</div>
                   </div>
-                  <div className="text-white font-semibold text-lg">{step}</div>
+                  <div className="mt-6 grid grid-cols-3 gap-4">
+                    {[
+                      { label: "Sessions", value: "12" },
+                      { label: "GMV lift", value: "+38%" },
+                      { label: "Conversion", value: "3.9%" },
+                    ].map((kpi) => (
+                      <div key={kpi.label} className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                        <div className="text-xs text-white/60">{kpi.label}</div>
+                        <div className="mt-1 text-2xl font-semibold text-white">{kpi.value}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div className="text-xs text-white/60">What you get</div>
+                    <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/75">
+                      {[
+                        "Host + producer",
+                        "Run-of-show",
+                        "Script + prompts",
+                        "Post-live review",
+                      ].map((item) => (
+                        <div key={item} className="inline-flex items-center gap-2">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#35D0BA]" />
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                {i < 4 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-orange-500 to-red-500"></div>
-                )}
               </div>
-            ))}
+              <div className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-gradient-to-r from-[#35D0BA]/30 to-[#4C6FFF]/30 blur-3xl" />
+            </div>
           </div>
-          
-          <div className="mt-12 text-center">
-            <Link 
-              href="/pricing" 
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-2xl hover:shadow-2xl hover:shadow-orange-500/25 transform hover:-translate-y-1 transition-all duration-300"
+
+          <div className="mt-14 border-t border-white/10 pt-10">
+            <div className="text-xs font-semibold tracking-widest text-white/50">TRUSTED BY GROWING BRANDS</div>
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+              {["Retail", "Beauty", "Electronics", "Food", "Lifestyle", "Home"].map((name) => (
+                <div
+                  key={name}
+                  className="flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white/60"
+                >
+                  {name}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="max-w-2xl">
+          <div className="text-xs font-semibold tracking-widest text-white/50">WHY LIVEBOOST</div>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-white">
+            A repeatable system for live selling
+          </h2>
+          <p className="mt-3 text-white/70">
+            Clean execution, consistent cadence, and continuous iteration.
+          </p>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            {
+              title: "Trained hosts",
+              desc: "On-brand delivery, high-energy pacing, confident product demos.",
+              Icon: Mic2,
+            },
+            {
+              title: "Production-ready ops",
+              desc: "Run-of-show, prompts, and prep so every session runs smoothly.",
+              Icon: ShieldCheck,
+            },
+            {
+              title: "Conversion-first scripts",
+              desc: "Hooks, objections, and CTAs designed for marketplace behavior.",
+              Icon: BadgeCheck,
+            },
+            {
+              title: "Measurable improvement",
+              desc: "Weekly review + reporting to tighten the loop and scale wins.",
+              Icon: LineChart,
+            },
+          ].map(({ title, desc, Icon }) => (
+            <div key={title} className="rounded-3xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition-colors">
+              <div className="h-10 w-10 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center">
+                <Icon className="h-5 w-5 text-white/80" aria-hidden />
+              </div>
+              <div className="mt-4 text-lg font-semibold text-white">{title}</div>
+              <div className="mt-2 text-sm text-white/70">{desc}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-white/10 bg-[#070A12]">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="text-xs font-semibold tracking-widest text-white/50">HOW IT WORKS</div>
+              <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-white">
+                Go live in days, not weeks
+              </h2>
+              <p className="mt-3 text-white/70 max-w-xl">
+                A lightweight onboarding flow designed for speed and clarity.
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-white text-[#0B0F1A] px-5 py-3 font-semibold hover:bg-white/90 transition-colors"
+                >
+                  Get started
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                </Link>
+              </div>
+            </div>
+            <div className="grid gap-4">
+              {[
+                {
+                  step: "01",
+                  title: "Apply",
+                  desc: "Tell us what you sell, where you sell, and your goals.",
+                },
+                {
+                  step: "02",
+                  title: "Plan",
+                  desc: "We build the run-of-show, script, and session cadence.",
+                },
+                {
+                  step: "03",
+                  title: "Execute + iterate",
+                  desc: "Go live, review performance, and scale what works.",
+                },
+              ].map((s) => (
+                <div key={s.step} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                  <div className="text-xs font-semibold text-white/60">{s.step}</div>
+                  <div className="mt-2 text-lg font-semibold text-white">{s.title}</div>
+                  <div className="mt-2 text-sm text-white/70">{s.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-r from-[#4C6FFF]/15 to-[#35D0BA]/15 p-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent" />
+          <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div>
+              <div className="text-xs font-semibold tracking-widest text-white/60">READY TO SCALE</div>
+              <div className="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-white">
+                Get a tailored live selling plan
+              </div>
+              <div className="mt-2 text-white/70 max-w-xl">
+                Share your business details and we’ll follow up with next steps.
+              </div>
+            </div>
+            <Link
+              href="/apply"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#4C6FFF] to-[#35D0BA] px-6 py-3 font-semibold text-[#0B0F1A] hover:opacity-95 transition-opacity"
             >
-              View Our Plans
-              <ArrowRight className="h-5 w-5" />
+              Apply
+              <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* Social Proof */}
-      <section className="py-24 bg-gradient-to-br from-white via-slate-50 to-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4">
-              Trusted by Growing Businesses
-            </h2>
-            <p className="text-xl text-gray-600">Real results from real clients</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { stars: "★★★★★", quote: "LiveBoost transformed our live selling game. Sales increased 400% in just 2 months!", author: "Maria Santos, Fashion Boutique" },
-              { stars: "★★★★★", quote: "Professional hosts who actually understand our products. Best investment we&apos;ve made!", author: "Carlos Rivera, Electronics Store" },
-              { stars: "★★★★★", quote: "From zero to hero in live selling. Their team made it look effortless.", author: "Ana Dela Cruz, Beauty Brand" }
-            ].map((testimonial, i) => (
-              <div key={i} className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2">
-                <div className="flex text-yellow-400 text-xl mb-4">{testimonial.stars}</div>
-                <p className="text-gray-700 text-lg leading-relaxed mb-6">&quot;{testimonial.quote}&quot;</p>
-                <p className="text-gray-600 font-semibold">{testimonial.author}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="relative py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-orange-600/20"></div>
-        <div className="absolute top-10 left-10 w-72 h-72 bg-gradient-to-r from-orange-400/20 to-red-400/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
-        
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Ready to 
-            <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent"> Transform </span>
-            Your Sales?
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed">
-            Join hundreds of Philippine businesses already growing with professional live selling
-          </p>
-          <Link 
-            href="/pricing" 
-            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold text-xl rounded-2xl hover:shadow-2xl hover:shadow-orange-500/25 transform hover:-translate-y-1 transition-all duration-300"
-          >
-            Get Started Today
-            <ArrowRight className="h-6 w-6" />
-          </Link>
         </div>
       </section>
     </div>
